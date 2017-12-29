@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a nibs.
         tableView.delegate = self
         tableView.dataSource = self
         // tableView.tableFooterView = UIView(frame: CGRect)
@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
