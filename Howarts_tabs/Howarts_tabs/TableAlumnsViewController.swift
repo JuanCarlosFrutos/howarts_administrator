@@ -11,7 +11,11 @@ import UIKit
 class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var m:Model_alumn
+    var m:ModelAlumn
+    var appModel:AppModel
+    //I need a ordered array to show all students in table, so this is the solution.
+    var arrayIterador: [String]
+    var selectedId: String
     
     let data = ["Bayern","BadenWürttemberg","Berlin","Brandenburg","Bremen","Hamburg","Hessen"]
     
@@ -19,9 +23,12 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
         //let ad  = UIApplication.sharedApplication().deletete as! AppDelegate
         let ad  = UIApplication.shared.delegate as! AppDelegate
         m = ad.m
-        
+        //self.appModel = AppModel.init(ArrayAlums: [Alumn.init(), Alumn.init(), Alumn.init()], ArrayHouse: [House.init(), House.init()])
+        self.appModel = ad.appModel
+        self.arrayIterador = Array(appModel.dictionaryAlumns.keys)
+        self.selectedId = "empty"
         super.init(coder: aDecoder)
-        print("View controller inited")
+        // print("View controller inited")
     }
     
     override func viewDidLoad() {
@@ -33,7 +40,8 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
     
     //Charge model with info that i want to share with next view.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        m.name = "VB"
+        debugPrint("Update mini-model")
+        m.id = self.selectedId;
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,23 +49,25 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return self.arrayIterador.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProtoCell", for: indexPath)
         let row = indexPath.row
-        cell.textLabel!.text = data[row]
+        cell.textLabel!.text = self.appModel.dictionaryAlumns[arrayIterador[row]]!.name
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let ac = UIAlertController (title: "ROW SELECTED.", message: "\(data[indexPath.row])",preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        
-        present(ac, animated:true, completion:nil)
-        
+        debugPrint("Row selected")
+        self.selectedId = appModel.dictionaryAlumns[self.arrayIterador[indexPath.row]]!.id
+        performSegue(withIdentifier: "tableViewAlumnView", sender: nil)
+        // let ac = UIAlertController (title: "ROW SELECTED.", message: "\(data[indexPath.row])",preferredStyle: .alert)
+        // ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        // present(ac, animated:true, completion:nil)
+
     }
 
 

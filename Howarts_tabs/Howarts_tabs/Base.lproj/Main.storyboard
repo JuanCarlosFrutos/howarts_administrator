@@ -34,9 +34,6 @@
                                                     <rect key="frame" x="330" y="6" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="+"/>
-                                                    <connections>
-                                                        <segue destination="nGh-M8-qVH" kind="show" id="fT9-JY-ga5"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -51,9 +48,6 @@
                                 <rect key="frame" x="270" y="626" width="89" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="New Student"/>
-                                <connections>
-                                    <segue destination="nGh-M8-qVH" kind="show" id="lh1-iK-M8J"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,6 +58,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="vxX-t1-PJe" id="mIK-yx-XwH"/>
+                        <segue destination="nGh-M8-qVH" kind="show" identifier="tableViewAlumnView" id="a3z-bo-LXq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -278,6 +273,10 @@
                                 <rect key="frame" x="50" y="575" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="nGh-M8-qVH" eventType="touchUpInside" id="OBi-Ol-oBr"/>
+                                    <segue destination="9pv-A4-QxB" kind="show" id="Aq1-hZ-M7P"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpc-jG-2vY">
                                 <rect key="frame" x="231" y="575" width="101" height="30"/>
@@ -308,8 +307,8 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fT9-JY-ga5"/>
         <segue reference="5hO-Tw-bZQ"/>
         <segue reference="hNK-QW-IeO"/>
+        <segue reference="Aq1-hZ-M7P"/>
     </inferredMetricsTieBreakers>
 </document>

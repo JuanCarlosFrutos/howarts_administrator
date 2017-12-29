@@ -15,7 +15,9 @@ class AlumnViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var house: UITextField!
     @IBOutlet weak var image: UIImageView!
     
-    var m:Model_alumn
+    var m: ModelAlumn
+    var appModel: AppModel
+    var alumn: Alumn
     var myImage = UIImage(contentsOfFile:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg" )
     
     override func viewDidLoad() {
@@ -28,9 +30,9 @@ class AlumnViewController: UIViewController, UITextFieldDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         let ad  = UIApplication.shared.delegate as! AppDelegate
-        //let ad  = UIApplication.sharedApplication().deletete as! AppDelegate
-        m = ad.m
-        
+        self.m = ad.m
+        self.appModel = ad.appModel
+        self.alumn = Alumn.init()
         super.init(coder: aDecoder)
         print("View controller inited")
     }
@@ -38,16 +40,22 @@ class AlumnViewController: UIViewController, UITextFieldDelegate {
     //Charge in fields info recived by other view
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        name.text = m.name
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        //Search info of user in appModel
+        debugPrint(m.id)
+        self.alumn = appModel.dictionaryAlumns[m.id]!
+        //Put info in its fields
+        self.name.text = alumn.name
+        self.surname.text = alumn.surname
+        self.house.text = alumn.house
     }
     
-    
-
-
+    @IBAction func saveButton(_ sender: UIButton) {
+        //Safe info in app model
+        self.alumn.name = self.name.text!
+        self.alumn.house = self.house.text!
+        self.alumn.surname = self.surname.text!
+        //Update model
+        appModel.dictionaryAlumns[m.id] = self.alumn
+    }
 }
 
