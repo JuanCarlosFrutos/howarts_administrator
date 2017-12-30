@@ -57,5 +57,8 @@ class AlumnViewController: UIViewController, UITextFieldDelegate {
         //Update model
         appModel.dictionaryAlumns[m.id] = self.alumn
     }
+    @IBAction func deleteButton(_ sender: UIButton) {
+        self.appModel.dictionaryAlumns.removeValue(forKey: m.id )
+    }
 }
 

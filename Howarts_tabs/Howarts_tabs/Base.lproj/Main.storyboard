@@ -283,6 +283,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Delete student"/>
                                 <connections>
+                                    <action selector="deleteButton:" destination="nGh-M8-qVH" eventType="touchUpInside" id="yVA-4U-VzH"/>
                                     <segue destination="N3g-Lm-qnA" kind="show" id="5hO-Tw-bZQ"/>
                                 </connections>
                             </button>
