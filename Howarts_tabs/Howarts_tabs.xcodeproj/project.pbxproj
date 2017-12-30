@@ -17,6 +17,7 @@
 		E9394F4B1FF54A9400D60B0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9394F491FF54A9400D60B0E /* LaunchScreen.storyboard */; };
 		E9394F561FF54A9400D60B0E /* Howarts_tabsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9394F551FF54A9400D60B0E /* Howarts_tabsTests.swift */; };
 		E9394F611FF54A9400D60B0E /* Howarts_tabsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9394F601FF54A9400D60B0E /* Howarts_tabsUITests.swift */; };
+		E947E37B1FF78713002D379F /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E947E37A1FF78713002D379F /* MyCell.swift */; };
 		E97822951FF6836A004823AA /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97822941FF6836A004823AA /* AppModel.swift */; };
 		E97822971FF68408004823AA /* Alumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97822961FF68408004823AA /* Alumn.swift */; };
 		E97822991FF6861E004823AA /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97822981FF6861E004823AA /* House.swift */; };
@@ -56,6 +57,7 @@
 		E9394F5C1FF54A9400D60B0E /* Howarts_tabsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Howarts_tabsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9394F601FF54A9400D60B0E /* Howarts_tabsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Howarts_tabsUITests.swift; sourceTree = "<group>"; };
 		E9394F621FF54A9400D60B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E947E37A1FF78713002D379F /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		E97822941FF6836A004823AA /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		E97822961FF68408004823AA /* Alumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alumn.swift; sourceTree = "<group>"; };
 		E97822981FF6861E004823AA /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				E9394F401FF54A9400D60B0E /* TableAlumnsViewController.swift */,
 				E9394F421FF54A9400D60B0E /* SecondViewController.swift */,
 				E9394F441FF54A9400D60B0E /* Main.storyboard */,
+				E947E37A1FF78713002D379F /* MyCell.swift */,
 				E9394F471FF54A9400D60B0E /* Assets.xcassets */,
 				E9394F491FF54A9400D60B0E /* LaunchScreen.storyboard */,
 				E9394F4C1FF54A9400D60B0E /* Info.plist */,
@@ -283,6 +286,7 @@
 				E90B285C1FF637FA00B9497E /* AlumnViewController.swift in Sources */,
 				E90B28561FF6216200B9497E /* ModelAlumn.swift in Sources */,
 				E97822971FF68408004823AA /* Alumn.swift in Sources */,
+				E947E37B1FF78713002D379F /* MyCell.swift in Sources */,
 				E9394F3F1FF54A9400D60B0E /* AppDelegate.swift in Sources */,
 				E9394F411FF54A9400D60B0E /* TableAlumnsViewController.swift in Sources */,
 			);

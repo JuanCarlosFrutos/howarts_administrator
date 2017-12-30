@@ -11,36 +11,35 @@ import UIKit
 class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var newButton: UIButton!
+    
     var m:ModelAlumn
     var appModel:AppModel
     //I need a ordered array to show all students in table, so this is the solution.
     var arrayIterador: [String]
     var selectedId: String
     
-    let data = ["Bayern","BadenWürttemberg","Berlin","Brandenburg","Bremen","Hamburg","Hessen"]
-    
     required init?(coder aDecoder: NSCoder) {
         //let ad  = UIApplication.sharedApplication().deletete as! AppDelegate
         let ad  = UIApplication.shared.delegate as! AppDelegate
         m = ad.m
-        //self.appModel = AppModel.init(ArrayAlums: [Alumn.init(), Alumn.init(), Alumn.init()], ArrayHouse: [House.init(), House.init()])
         self.appModel = ad.appModel
         self.arrayIterador = Array(appModel.dictionaryAlumns.keys)
         self.selectedId = "empty"
         super.init(coder: aDecoder)
-        // print("View controller inited")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.setEditing(true, animated: true)
         tableView.delegate = self
         tableView.dataSource = self
-        // tableView.tableFooterView = UIView(frame: CGRect)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     //Charge model with info that i want to share with next view.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        debugPrint("Update mini-model")
         m.id = self.selectedId;
     }
     
@@ -49,27 +48,39 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arrayIterador.count
+        return self.appModel.dictionaryAlumns.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProtoCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProtoCell", for: indexPath) as! MyCell
         let row = indexPath.row
-        cell.textLabel!.text = self.appModel.dictionaryAlumns[arrayIterador[row]]!.name
-        
+        cell.name.text = self.appModel.dictionaryAlumns[arrayIterador[row]]!.name
+        cell.img.image = UIImage(contentsOfFile:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg" )
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        debugPrint("Row selected")
         self.selectedId = appModel.dictionaryAlumns[self.arrayIterador[indexPath.row]]!.id
         performSegue(withIdentifier: "tableViewAlumnView", sender: nil)
-        // let ac = UIAlertController (title: "ROW SELECTED.", message: "\(data[indexPath.row])",preferredStyle: .alert)
-        // ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        // present(ac, animated:true, completion:nil)
-
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let row = indexPath.row
+            appModel.dictionaryAlumns.removeValue(forKey: arrayIterador[row])
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        }
     }
 
-
+    @IBAction func deleteButton(_ sender: UIButton) {
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: true)
+            newButton.isEnabled = true
+        } else {
+            tableView.setEditing(true, animated: true)
+            newButton.isEnabled = false
+        }
+    }
 }
 
