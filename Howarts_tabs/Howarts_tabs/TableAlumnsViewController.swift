@@ -72,6 +72,16 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
             
         }
     }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item: String = arrayIterador[sourceIndexPath.row]
+        arrayIterador.remove(at: sourceIndexPath.row)
+        arrayIterador.insert(item, at: destinationIndexPath.row)
+    }
 
     @IBAction func deleteButton(_ sender: UIButton) {
         if tableView.isEditing {
