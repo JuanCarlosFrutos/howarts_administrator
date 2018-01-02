@@ -42,6 +42,7 @@ class AlumnViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         //Search info of user in appModel
         debugPrint("Im in detail view" + m.id)
+        
         self.alumn = appModel.dictionaryAlumns[m.id]!
         //Put info in its fields
         self.name.text = alumn.name

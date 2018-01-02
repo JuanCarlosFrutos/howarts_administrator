@@ -98,5 +98,11 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
             newButton.isEnabled = false
         }
     }
+    @IBAction func newButton(_ sender: UIButton) {
+        let newAlumn: Alumn? = Alumn.init()
+        appModel.dictionaryAlumns[newAlumn!.id] = newAlumn
+        self.selectedId = newAlumn!.id
+        performSegue(withIdentifier:"tableViewAlumnView" , sender: nil)
+    }
 }
 
