@@ -19,6 +19,7 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
     //I need a ordered array to show all students in table, so this is the solution.
     var arrayIterador: [String]
     var selectedId: String
+    var houses = [String](arrayLiteral: "Gryffindor","Hufflepuff","Ravenclaw","Slytherin")
     
     required init?(coder aDecoder: NSCoder) {
         //let ad  = UIApplication.sharedApplication().deletete as! AppDelegate
@@ -44,11 +45,16 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 4
     }
     
     func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.appModel.dictionaryAlumns.count
+        // return self.appModel.dictionaryAlumns.count
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.houses[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

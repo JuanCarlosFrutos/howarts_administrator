@@ -25,4 +25,12 @@ public class Alumn {
         self.image = URL.init(string:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg")!
     }
     
+    init(house: String){
+        self.id = UUID().uuidString
+        self.name = "Name: " + self.id
+        self.surname = "Surname"
+        self.house = house
+        self.image = URL.init(string:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg")!
+    }
+    
 }
