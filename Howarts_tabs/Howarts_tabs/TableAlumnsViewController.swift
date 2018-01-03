@@ -19,7 +19,7 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
     //I need a ordered array to show all students in table, so this is the solution.
     var arrayIterador: [String]
     var selectedId: String
-    var houses = [String](arrayLiteral: "Gryffindor","Hufflepuff","Ravenclaw","Slytherin")
+    //var houses = [String](arrayLiteral: "Gryffindor","Hufflepuff","Ravenclaw","Slytherin")
     
     required init?(coder aDecoder: NSCoder) {
         //let ad  = UIApplication.sharedApplication().deletete as! AppDelegate
@@ -33,7 +33,7 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.setEditing(true, animated: true)
+        // tableView.setEditing(true, animated: true)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -45,22 +45,23 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return appModel.houses.count
     }
     
     func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return self.appModel.dictionaryAlumns.count
-        return 3
+        debugPrint(appModel.houses[section].numberAlumns)
+        return appModel.houses[section].numberAlumns
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.houses[section]
+        return self.appModel.houses[section].name
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProtoCell", for: indexPath) as! MyCell
         let row = indexPath.row
-        cell.name.text = self.appModel.dictionaryAlumns[arrayIterador[row]]!.name
+        cell.name.text = self.appModel.dictionaryAlumns[self.appModel.houses[indexPath.section].alumns[row]]!.name
         cell.img.image = UIImage(contentsOfFile:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg" )
         return cell
     }
