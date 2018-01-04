@@ -67,7 +67,8 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedId = appModel.dictionaryAlumns[self.arrayIterador[indexPath.row]]!.id
+        self.selectedId = appModel.houses[indexPath.section].alumns[indexPath.row]
+        //self.selectedId = appModel.dictionaryAlumns[self.arrayIterador[indexPath.row]]!.id
         performSegue(withIdentifier: "tableViewAlumnView", sender: nil)
     }
     

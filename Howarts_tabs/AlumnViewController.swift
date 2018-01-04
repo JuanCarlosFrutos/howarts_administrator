@@ -23,8 +23,8 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        name.text = "Juan Carlos"
-        surname.text = "Frutos"
+        name.text = "Default"
+        surname.text = "Default"
         // house.text = "La mia"
         image.image = myImage
     }
@@ -35,20 +35,23 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
         self.appModel = ad.appModel
         self.alumn = Alumn.init()
         super.init(coder: aDecoder)
-        print("View controller inited")
     }
     
     //Charge in fields info recived by other view
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //Search info of user in appModel
-        debugPrint("Im in detail view" + m.id)
         
         self.alumn = appModel.dictionaryAlumns[m.id]!
         //Put info in its fields
         self.name.text = alumn.name
         self.surname.text = alumn.surname
-        //self.house. = alumn.house
+        debugPrint(alumn.house)
+        for (index, element) in self.appModel.houses.enumerated() {
+            if (element.name == alumn.house){
+                debugPrint(index)
+                self.house.selectRow(index, inComponent: 0, animated: false)
+            }
+        }
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
