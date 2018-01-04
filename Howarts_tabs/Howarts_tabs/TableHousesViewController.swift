@@ -12,14 +12,14 @@ class TableHousesViewController: UIViewController, UITableViewDelegate, UITableV
 
     @IBOutlet weak var tableView: UITableView!
     var appModel: AppModel
-    var m: ModelAlumn
-    var selectedId: String
+    var h: ModelHouse
+    var selectedHouse: House
     
     required init?(coder aDecoder: NSCoder) {
         let ad  = UIApplication.shared.delegate as! AppDelegate
-        m = ad.m
+        h = ad.h
         self.appModel = ad.appModel
-        self.selectedId = "empty"
+        self.selectedHouse = appModel.houses[0]
         super.init(coder: aDecoder)
     }
     
@@ -30,7 +30,7 @@ class TableHousesViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        m.id = self.selectedId;
+        h.house = self.selectedHouse;
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -49,8 +49,12 @@ class TableHousesViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedId = appModel.houses[indexPath.row].id
+        self.selectedHouse = appModel.houses[indexPath.row]
         performSegue(withIdentifier: "listHouseDetailHouse", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200.0
     }
     
 }

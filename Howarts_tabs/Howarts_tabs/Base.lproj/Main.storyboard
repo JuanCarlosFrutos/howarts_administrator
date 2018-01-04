@@ -145,29 +145,41 @@
             </objects>
             <point key="canvasLocation" x="2013.5999999999999" y="358.4707646176912"/>
         </scene>
-        <!--View Controller-->
+        <!--House View Controller-->
         <scene sceneID="0VE-8f-wVv">
             <objects>
-                <viewController id="Y2g-R3-iU9" sceneMemberID="viewController">
+                <viewController id="Y2g-R3-iU9" customClass="HouseViewController" customModule="Howarts_tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pu6-ih-BMn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SbN-lj-kSH">
-                                <rect key="frame" x="19" y="64" width="337" height="337"/>
+                                <rect key="frame" x="19" y="165" width="337" height="337"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Numero de estudiantes -15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt6-EN-mrV">
-                                <rect key="frame" x="19" y="435" width="337" height="103"/>
+                                <rect key="frame" x="19" y="515" width="337" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="1" green="0.28920706214729985" blue="0.29406412700859896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qai-3t-n8G">
+                                <rect key="frame" x="16" y="79" width="340" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.71011848604324368" blue="0.78279565028350884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="saF-aV-iBv"/>
                     </view>
+                    <connections>
+                        <outlet property="imageHouse" destination="SbN-lj-kSH" id="5Cb-AE-lY8"/>
+                        <outlet property="name" destination="Qai-3t-n8G" id="5E2-Eo-g2Z"/>
+                        <outlet property="numberAlumns" destination="Tt6-EN-mrV" id="3UV-av-vDT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K02-px-Ga9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

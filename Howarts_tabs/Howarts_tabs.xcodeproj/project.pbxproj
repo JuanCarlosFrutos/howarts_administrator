@@ -10,6 +10,8 @@
 		E90B28561FF6216200B9497E /* ModelAlumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B28551FF6216200B9497E /* ModelAlumn.swift */; };
 		E90B285C1FF637FA00B9497E /* AlumnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B285B1FF637FA00B9497E /* AlumnViewController.swift */; };
 		E92ACA4B1FFE266100E2CF68 /* HouseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92ACA4A1FFE266100E2CF68 /* HouseCell.swift */; };
+		E92D8AD01FFE40E6008FC010 /* ModelHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92D8ACF1FFE40E6008FC010 /* ModelHouse.swift */; };
+		E92D8AD21FFE435B008FC010 /* HouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92D8AD11FFE435B008FC010 /* HouseViewController.swift */; };
 		E9394F3F1FF54A9400D60B0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9394F3E1FF54A9400D60B0E /* AppDelegate.swift */; };
 		E9394F411FF54A9400D60B0E /* TableAlumnsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9394F401FF54A9400D60B0E /* TableAlumnsViewController.swift */; };
 		E9394F431FF54A9400D60B0E /* TableHousesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9394F421FF54A9400D60B0E /* TableHousesViewController.swift */; };
@@ -45,6 +47,8 @@
 		E90B28551FF6216200B9497E /* ModelAlumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAlumn.swift; sourceTree = "<group>"; };
 		E90B285B1FF637FA00B9497E /* AlumnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumnViewController.swift; sourceTree = SOURCE_ROOT; };
 		E92ACA4A1FFE266100E2CF68 /* HouseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseCell.swift; sourceTree = "<group>"; };
+		E92D8ACF1FFE40E6008FC010 /* ModelHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHouse.swift; sourceTree = "<group>"; };
+		E92D8AD11FFE435B008FC010 /* HouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseViewController.swift; sourceTree = "<group>"; };
 		E9394F3B1FF54A9400D60B0E /* Howarts_tabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Howarts_tabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9394F3E1FF54A9400D60B0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9394F401FF54A9400D60B0E /* TableAlumnsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAlumnsViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +122,9 @@
 				E97822981FF6861E004823AA /* House.swift */,
 				E97822961FF68408004823AA /* Alumn.swift */,
 				E90B285B1FF637FA00B9497E /* AlumnViewController.swift */,
+				E92D8AD11FFE435B008FC010 /* HouseViewController.swift */,
 				E90B28551FF6216200B9497E /* ModelAlumn.swift */,
+				E92D8ACF1FFE40E6008FC010 /* ModelHouse.swift */,
 				E9394F401FF54A9400D60B0E /* TableAlumnsViewController.swift */,
 				E9394F421FF54A9400D60B0E /* TableHousesViewController.swift */,
 				E9394F441FF54A9400D60B0E /* Main.storyboard */,
@@ -289,6 +295,8 @@
 				E90B285C1FF637FA00B9497E /* AlumnViewController.swift in Sources */,
 				E90B28561FF6216200B9497E /* ModelAlumn.swift in Sources */,
 				E97822971FF68408004823AA /* Alumn.swift in Sources */,
+				E92D8AD01FFE40E6008FC010 /* ModelHouse.swift in Sources */,
+				E92D8AD21FFE435B008FC010 /* HouseViewController.swift in Sources */,
 				E947E37B1FF78713002D379F /* MyCell.swift in Sources */,
 				E9394F3F1FF54A9400D60B0E /* AppDelegate.swift in Sources */,
 				E92ACA4B1FFE266100E2CF68 /* HouseCell.swift in Sources */,

@@ -15,14 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //Comunication between alumn table and view alumn
     var m = ModelAlumn()
-    // var appModel = AppModel.init(ArrayAlums: [Alumn.init(house:"Gryffindor"), Alumn.init(house:"Hufflepuff"), Alumn.init(house:"Slytherin")], ArrayHouse: [House.init(), House.init()])
+    var h = ModelHouse()
     var appModel = AppModel.init()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        // self.appModel = AppModel.init(ArrayAlums: [Alumn.init(), Alumn.init(), Alumn.init()], ArrayHouse: [House.init(), House.init()])
-        // appModel = AppModel.init()
-        // appModel.loadAlumns()
         return true
     }
 

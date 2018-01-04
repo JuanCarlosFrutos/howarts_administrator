@@ -7,23 +7,12 @@
 //
 
 import Foundation
-import UIKit
 
 public class ModelAlumn {
     
-    var name: String
-    var surname: String
-    var house: String
-    var image: UIImage
     var id: String
-    
-    var myImage = UIImage(contentsOfFile:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg" )
-    
+        
     init() {
-        name = "name"
-        surname = "surname"
-        house = "house"
-        image = myImage!
         id = ""
     }
     
