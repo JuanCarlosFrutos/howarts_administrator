@@ -19,6 +19,7 @@ class HouseViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.black
         numberAlumns.text = "Number Students: 0"
         imageHouse.image = h.img
     }

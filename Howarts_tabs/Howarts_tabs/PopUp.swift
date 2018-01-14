@@ -9,13 +9,17 @@
 import Foundation
 import UIKit
 
-public class PopUp: UIViewController {
+class PopUp: UIViewController {
     
-    init() {
+    @IBOutlet weak var label: UILabel!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        label.text = "Sorry, camera not found!"
     }
     
 }

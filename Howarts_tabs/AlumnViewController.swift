@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate,  UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate,  UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var surname: UITextField!
@@ -28,12 +28,20 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped(tapGestureRecognizer:)))
+        image.isUserInteractionEnabled = true
+        image.addGestureRecognizer(tapGestureRecognizer)
         name.text = "Default"
         surname.text = "Default"
         // house.text = "La mia"
         image.image = m.image
     }
     
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        //let tappedImage = tapGestureRecognizer.view as! UIImageView
+        activeCamera()
+    }
     required init?(coder aDecoder: NSCoder) {
         let ad  = UIApplication.shared.delegate as! AppDelegate
         self.m = ad.m
@@ -69,10 +77,6 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
         appModel.alumnsByHouse()
         performSegue(withIdentifier: "saveSegueId", sender: nil)
     }
-    /*
-    @IBAction func deleteButton(_ sender: UIButton) {
-        self.appModel.dictionaryAlumns.removeValue(forKey: m.id )
-    }*/
     
     //Picker Protocol
     
@@ -100,7 +104,7 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
             self.imagePickerController.cameraDevice = .front
             present(imagePickerController, animated: true, completion: nil)
         }else{
-            //show pop up
+            showPopup(image)
         }
     }
     
@@ -128,10 +132,18 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
     
     //pop up not camera
     func showPopup (_ sender: UIView) {
-        let popUp = storyboard?.instantiateViewController(withIdentifier: "PopUp") as! PopUp
-        
+        let popUp = storyboard?.instantiateViewController(withIdentifier: "POP_UP_CAMERA") as! PopUp
+        //popUp.label.text = "Sorry, your device has't camera!"
+        popUp.modalPresentationStyle = .popover
+        let popPC = popUp.popoverPresentationController!
+        popPC.sourceView = sender
+        popPC.sourceRect = sender.bounds
+        popPC.delegate = self
+        present(popUp, animated: true, completion: nil)
     }
     
-    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
 }
 
