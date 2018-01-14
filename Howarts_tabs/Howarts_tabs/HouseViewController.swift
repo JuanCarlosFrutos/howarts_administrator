@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class HouseViewController: UIViewController {
+class HouseViewController: UIViewController{
     @IBOutlet weak var imageHouse: UIImageView!
     @IBOutlet weak var numberAlumns: UILabel!
     @IBOutlet weak var name: UILabel!
@@ -20,7 +20,7 @@ class HouseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         numberAlumns.text = "Number Students: 0"
-        imageHouse.image = myImage
+        imageHouse.image = h.img
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,6 +34,6 @@ class HouseViewController: UIViewController {
         //Put info in its fields
         self.name.text = h.house!.name
         self.numberAlumns.text = "Number Students: " + String(describing:h.house!.numberAlumns)
-        self.imageHouse.image = myImage
+        self.imageHouse.image = h.img
     }
 }

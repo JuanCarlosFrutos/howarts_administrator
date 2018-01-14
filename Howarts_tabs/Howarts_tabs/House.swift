@@ -14,6 +14,7 @@ public class House: Codable {
     var numberAlumns: Int
     var id: String
     var alumns: [String]
+    var image: String
     
     init() {
         //Generate a unique ID (one per user)
@@ -21,6 +22,7 @@ public class House: Codable {
         self.name = "Name" + self.id
         self.alumns = []
         self.numberAlumns = self.alumns.count
+        self.image = ""
     }
     
 }

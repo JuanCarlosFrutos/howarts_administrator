@@ -12,20 +12,25 @@ public class AppModel {
     
     var dictionaryAlumns = Dictionary<String, Alumn>()
     var houses = [House]()
+    let mainBundle = Bundle.main
     private var NAME_OF_FILE_ALUMNS = ""
     private var NAME_OF_FILE_HOUSES = ""
     private var PATH_ALUMNS: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     private var PATH_HOUSES: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     
     init() {
-        NAME_OF_FILE_ALUMNS = "howarts_data_alumns.json"
-        NAME_OF_FILE_HOUSES = "howarts_data_houses.json"
+        NAME_OF_FILE_ALUMNS = "data_alumns"
+        NAME_OF_FILE_HOUSES = "data_houses"
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         debugPrint(documentsURL)
         PATH_ALUMNS = documentsURL.appendingPathComponent(NAME_OF_FILE_ALUMNS)
         PATH_HOUSES = documentsURL.appendingPathComponent(NAME_OF_FILE_HOUSES)
         PATH_ALUMNS = URL.init(string: "file:///Users/jcarlos/Documents/howarts_data_alumns.json")!
         PATH_HOUSES = URL.init(string: "file:///Users/jcarlos/Documents/howarts_data_houses.json")!
+        PATH_ALUMNS = URL.init(string: "file:///" + mainBundle.bundlePath + "/" + NAME_OF_FILE_ALUMNS)!
+        PATH_HOUSES = URL.init(string: "file:///" + mainBundle.bundlePath + "/" + NAME_OF_FILE_HOUSES)!
+        debugPrint(PATH_HOUSES)
+        
         loadHouses()
         loadAlumns()
         // alumnsByHouse()

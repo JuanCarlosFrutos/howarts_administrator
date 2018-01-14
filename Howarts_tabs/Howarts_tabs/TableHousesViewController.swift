@@ -13,13 +13,16 @@ class TableHousesViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
     var appModel: AppModel
     var h: ModelHouse
-    var selectedHouse: House
+    var selectedHouse: ModelHouse
+    let mainBundle = Bundle.main
     
     required init?(coder aDecoder: NSCoder) {
         let ad  = UIApplication.shared.delegate as! AppDelegate
         h = ad.h
         self.appModel = ad.appModel
-        self.selectedHouse = appModel.houses[0]
+        self.selectedHouse = ModelHouse()
+        self.selectedHouse.house = appModel.houses[0]
+        self.selectedHouse.img = nil
         super.init(coder: aDecoder)
     }
     
@@ -30,7 +33,8 @@ class TableHousesViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        h.house = self.selectedHouse;
+        h.house = self.selectedHouse.house;
+        h.img = self.selectedHouse.img;
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,13 +47,18 @@ class TableHousesViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HouseCell", for: indexPath) as! HouseCell
-        //let row = indexPath.row
-        cell.imageHouse.image = UIImage(contentsOfFile:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg" )
+        let row = indexPath.row
+        //cell.imageHouse.image = UIImage(contentsOfFile:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg" )
+        let pathImage = mainBundle.bundlePath + "/" + appModel.houses[row].image
+        cell.imageHouse.image = UIImage(contentsOfFile:pathImage)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedHouse = appModel.houses[indexPath.row]
+        self.selectedHouse.house = appModel.houses[indexPath.row]
+        let pathImage = mainBundle.bundlePath + "/" + appModel.houses[indexPath.row].image
+        debugPrint(pathImage)
+        selectedHouse.img = UIImage(contentsOfFile:pathImage)
         performSegue(withIdentifier: "listHouseDetailHouse", sender: nil)
     }
     

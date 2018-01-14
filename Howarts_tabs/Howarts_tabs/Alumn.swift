@@ -13,7 +13,7 @@ public class Alumn: Codable {
     var name: String
     var surname: String
     var house: String
-    var image: URL
+    var image: String
     var id: String
     
     init() {
@@ -22,7 +22,7 @@ public class Alumn: Codable {
         self.name = "Name: " + self.id
         self.surname = "Surname"
         self.house = "House"
-        self.image = URL.init(string:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg")!
+        self.image = ""
     }
     
     init(house: String){
@@ -30,7 +30,7 @@ public class Alumn: Codable {
         self.name = "Name: " + self.id
         self.surname = "Surname"
         self.house = house
-        self.image = URL.init(string:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg")!
+        self.image = ""
     }
     
 }

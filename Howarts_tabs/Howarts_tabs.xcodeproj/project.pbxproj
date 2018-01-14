@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E906A609200B45E800ADF1DF /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E906A608200B45E800ADF1DF /* PopUp.swift */; };
 		E90B28561FF6216200B9497E /* ModelAlumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B28551FF6216200B9497E /* ModelAlumn.swift */; };
 		E90B285C1FF637FA00B9497E /* AlumnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B285B1FF637FA00B9497E /* AlumnViewController.swift */; };
 		E92ACA4B1FFE266100E2CF68 /* HouseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92ACA4A1FFE266100E2CF68 /* HouseCell.swift */; };
@@ -21,9 +22,20 @@
 		E9394F561FF54A9400D60B0E /* Howarts_tabsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9394F551FF54A9400D60B0E /* Howarts_tabsTests.swift */; };
 		E9394F611FF54A9400D60B0E /* Howarts_tabsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9394F601FF54A9400D60B0E /* Howarts_tabsUITests.swift */; };
 		E947E37B1FF78713002D379F /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E947E37A1FF78713002D379F /* MyCell.swift */; };
+		E95915A4200A110700038E0D /* data_alumns in Resources */ = {isa = PBXBuildFile; fileRef = E95915A3200A110700038E0D /* data_alumns */; };
+		E95915A6200A114500038E0D /* data_houses in Resources */ = {isa = PBXBuildFile; fileRef = E95915A5200A114500038E0D /* data_houses */; };
 		E97822951FF6836A004823AA /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97822941FF6836A004823AA /* AppModel.swift */; };
 		E97822971FF68408004823AA /* Alumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97822961FF68408004823AA /* Alumn.swift */; };
 		E97822991FF6861E004823AA /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97822981FF6861E004823AA /* House.swift */; };
+		E9FF26B9200A61B300D9B84A /* harry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9FF26B0200A61B200D9B84A /* harry.jpg */; };
+		E9FF26BA200A61B300D9B84A /* ravenclaw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9FF26B1200A61B300D9B84A /* ravenclaw.jpg */; };
+		E9FF26BB200A61B300D9B84A /* ron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9FF26B2200A61B300D9B84A /* ron.jpg */; };
+		E9FF26BC200A61B300D9B84A /* hufflepuff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9FF26B3200A61B300D9B84A /* hufflepuff.jpg */; };
+		E9FF26BD200A61B300D9B84A /* draco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9FF26B4200A61B300D9B84A /* draco.jpg */; };
+		E9FF26BE200A61B300D9B84A /* slytherin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9FF26B5200A61B300D9B84A /* slytherin.jpg */; };
+		E9FF26BF200A61B300D9B84A /* cho.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9FF26B6200A61B300D9B84A /* cho.jpg */; };
+		E9FF26C0200A61B300D9B84A /* gryffindor.png in Resources */ = {isa = PBXBuildFile; fileRef = E9FF26B7200A61B300D9B84A /* gryffindor.png */; };
+		E9FF26C1200A61B300D9B84A /* nymphadora.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9FF26B8200A61B300D9B84A /* nymphadora.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E906A608200B45E800ADF1DF /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		E90B28551FF6216200B9497E /* ModelAlumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAlumn.swift; sourceTree = "<group>"; };
 		E90B285B1FF637FA00B9497E /* AlumnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumnViewController.swift; sourceTree = SOURCE_ROOT; };
 		E92ACA4A1FFE266100E2CF68 /* HouseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseCell.swift; sourceTree = "<group>"; };
@@ -64,9 +77,20 @@
 		E9394F601FF54A9400D60B0E /* Howarts_tabsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Howarts_tabsUITests.swift; sourceTree = "<group>"; };
 		E9394F621FF54A9400D60B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E947E37A1FF78713002D379F /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
+		E95915A3200A110700038E0D /* data_alumns */ = {isa = PBXFileReference; lastKnownFileType = text; path = data_alumns; sourceTree = "<group>"; };
+		E95915A5200A114500038E0D /* data_houses */ = {isa = PBXFileReference; lastKnownFileType = text; path = data_houses; sourceTree = "<group>"; };
 		E97822941FF6836A004823AA /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		E97822961FF68408004823AA /* Alumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alumn.swift; sourceTree = "<group>"; };
 		E97822981FF6861E004823AA /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		E9FF26B0200A61B200D9B84A /* harry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = harry.jpg; sourceTree = "<group>"; };
+		E9FF26B1200A61B300D9B84A /* ravenclaw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ravenclaw.jpg; sourceTree = "<group>"; };
+		E9FF26B2200A61B300D9B84A /* ron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ron.jpg; sourceTree = "<group>"; };
+		E9FF26B3200A61B300D9B84A /* hufflepuff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hufflepuff.jpg; sourceTree = "<group>"; };
+		E9FF26B4200A61B300D9B84A /* draco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = draco.jpg; sourceTree = "<group>"; };
+		E9FF26B5200A61B300D9B84A /* slytherin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = slytherin.jpg; sourceTree = "<group>"; };
+		E9FF26B6200A61B300D9B84A /* cho.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cho.jpg; sourceTree = "<group>"; };
+		E9FF26B7200A61B300D9B84A /* gryffindor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gryffindor.png; sourceTree = "<group>"; };
+		E9FF26B8200A61B300D9B84A /* nymphadora.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nymphadora.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +141,7 @@
 		E9394F3D1FF54A9400D60B0E /* Howarts_tabs */ = {
 			isa = PBXGroup;
 			children = (
+				E9FF26AD200A5DB300D9B84A /* data */,
 				E9394F3E1FF54A9400D60B0E /* AppDelegate.swift */,
 				E97822941FF6836A004823AA /* AppModel.swift */,
 				E97822981FF6861E004823AA /* House.swift */,
@@ -128,6 +153,7 @@
 				E9394F401FF54A9400D60B0E /* TableAlumnsViewController.swift */,
 				E9394F421FF54A9400D60B0E /* TableHousesViewController.swift */,
 				E9394F441FF54A9400D60B0E /* Main.storyboard */,
+				E906A608200B45E800ADF1DF /* PopUp.swift */,
 				E947E37A1FF78713002D379F /* MyCell.swift */,
 				E92ACA4A1FFE266100E2CF68 /* HouseCell.swift */,
 				E9394F471FF54A9400D60B0E /* Assets.xcassets */,
@@ -153,6 +179,32 @@
 				E9394F621FF54A9400D60B0E /* Info.plist */,
 			);
 			path = Howarts_tabsUITests;
+			sourceTree = "<group>";
+		};
+		E9FF26AD200A5DB300D9B84A /* data */ = {
+			isa = PBXGroup;
+			children = (
+				E9FF26AE200A5DCE00D9B84A /* images */,
+				E95915A5200A114500038E0D /* data_houses */,
+				E95915A3200A110700038E0D /* data_alumns */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		E9FF26AE200A5DCE00D9B84A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				E9FF26B6200A61B300D9B84A /* cho.jpg */,
+				E9FF26B4200A61B300D9B84A /* draco.jpg */,
+				E9FF26B7200A61B300D9B84A /* gryffindor.png */,
+				E9FF26B0200A61B200D9B84A /* harry.jpg */,
+				E9FF26B3200A61B300D9B84A /* hufflepuff.jpg */,
+				E9FF26B8200A61B300D9B84A /* nymphadora.jpg */,
+				E9FF26B1200A61B300D9B84A /* ravenclaw.jpg */,
+				E9FF26B2200A61B300D9B84A /* ron.jpg */,
+				E9FF26B5200A61B300D9B84A /* slytherin.jpg */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +314,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9FF26BF200A61B300D9B84A /* cho.jpg in Resources */,
 				E9394F4B1FF54A9400D60B0E /* LaunchScreen.storyboard in Resources */,
+				E9FF26BE200A61B300D9B84A /* slytherin.jpg in Resources */,
+				E9FF26BC200A61B300D9B84A /* hufflepuff.jpg in Resources */,
+				E9FF26BA200A61B300D9B84A /* ravenclaw.jpg in Resources */,
 				E9394F481FF54A9400D60B0E /* Assets.xcassets in Resources */,
+				E9FF26B9200A61B300D9B84A /* harry.jpg in Resources */,
+				E9FF26BD200A61B300D9B84A /* draco.jpg in Resources */,
+				E95915A4200A110700038E0D /* data_alumns in Resources */,
+				E9FF26C0200A61B300D9B84A /* gryffindor.png in Resources */,
+				E9FF26BB200A61B300D9B84A /* ron.jpg in Resources */,
+				E95915A6200A114500038E0D /* data_houses in Resources */,
+				E9FF26C1200A61B300D9B84A /* nymphadora.jpg in Resources */,
 				E9394F461FF54A9400D60B0E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +363,7 @@
 				E947E37B1FF78713002D379F /* MyCell.swift in Sources */,
 				E9394F3F1FF54A9400D60B0E /* AppDelegate.swift in Sources */,
 				E92ACA4B1FFE266100E2CF68 /* HouseCell.swift in Sources */,
+				E906A609200B45E800ADF1DF /* PopUp.swift in Sources */,
 				E9394F411FF54A9400D60B0E /* TableAlumnsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

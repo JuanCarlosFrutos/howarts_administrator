@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate,  UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var surname: UITextField!
@@ -20,13 +20,18 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
     var alumn: Alumn
     var myImage = UIImage(contentsOfFile:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg" )
     var houseSelected = ""
+    var imagePickerController: UIImagePickerController {
+        let p  = UIImagePickerController()
+        p.delegate = self
+        return p
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         name.text = "Default"
         surname.text = "Default"
         // house.text = "La mia"
-        image.image = myImage
+        image.image = m.image
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,10 +50,9 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
         //Put info in its fields
         self.name.text = alumn.name
         self.surname.text = alumn.surname
-        debugPrint(alumn.house)
+        self.image.image = m.image
         for (index, element) in self.appModel.houses.enumerated() {
             if (element.name == alumn.house){
-                debugPrint(index)
                 self.house.selectRow(index, inComponent: 0, animated: false)
             }
         }
@@ -63,13 +67,12 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
         appModel.dictionaryAlumns[m.id] = self.alumn
         appModel.saveAlumns()
         appModel.alumnsByHouse()
-        //self.appModel.loadAlumns()
-        //self.appModel.loadHouses()
         performSegue(withIdentifier: "saveSegueId", sender: nil)
     }
+    /*
     @IBAction func deleteButton(_ sender: UIButton) {
         self.appModel.dictionaryAlumns.removeValue(forKey: m.id )
-    }
+    }*/
     
     //Picker Protocol
     
@@ -87,6 +90,46 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.houseSelected = self.appModel.houses[row].name
+    }
+    
+    //CAMERA
+    
+    func activeCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            self.imagePickerController.sourceType = .camera
+            self.imagePickerController.cameraDevice = .front
+            present(imagePickerController, animated: true, completion: nil)
+        }else{
+            //show pop up
+        }
+    }
+    
+    //Save image
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        defer {
+            //If something wrong. Hide camera
+            dismiss(animated: true, completion: nil)
+        }
+        //Try to find image if it can't find it only return.
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {return}
+        alumn.image = saveImage(image: image)
+    }
+    
+    func saveImage(image: UIImage) -> String {
+        
+        let imageData = NSData(data: UIImagePNGRepresentation(image)!)
+        let path = Bundle.main.bundleURL
+        let uuid = self.alumn.id + ".png"
+        let fullPath = path.appendingPathComponent(uuid)
+        imageData.write(toFile: fullPath.absoluteString, atomically: true)
+        return uuid
+        
+    }
+    
+    //pop up not camera
+    func showPopup (_ sender: UIView) {
+        let popUp = storyboard?.instantiateViewController(withIdentifier: "PopUp") as! PopUp
+        
     }
     
     

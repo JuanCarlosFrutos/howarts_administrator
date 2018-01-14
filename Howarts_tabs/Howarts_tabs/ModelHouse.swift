@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
 public class ModelHouse {
     
     var house: House?
+    var img: UIImage?
     
     init() {
         house = nil
+        img = nil
     }
     
 }

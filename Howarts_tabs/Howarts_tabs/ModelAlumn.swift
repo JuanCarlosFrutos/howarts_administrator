@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
 public class ModelAlumn {
     
     var id: String
+    var image: UIImage?
         
     init() {
         id = ""
+        image = nil
     }
     
 }
