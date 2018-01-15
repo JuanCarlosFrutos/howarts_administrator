@@ -1,24 +1,20 @@
 [{
 "name" : "Gryffindor",
-"numberAlumns" : 0,
 "id" : "asdbnm123",
 "alumns" : [],
 "image" : "gryffindor.png"
 },{
 "name" : "Hufflepuff",
-"numberAlumns" : 0,
 "id" : "jkldas123",
 "alumns" : [],
 "image" : "hufflepuff.jpg"
 },{
 "name" : "Slytherin",
-"numberAlumns" : 0,
 "id" : "jkldd987",
 "alumns" : [],
 "image" : "slytherin.jpg"
 },{
 "name" : "Ravenclaw",
-"numberAlumns" : 0,
 "id" : "jkldas1343",
 "alumns" : [],
 "image" : "ravenclaw.jpg"

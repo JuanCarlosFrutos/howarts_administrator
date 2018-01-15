@@ -15,7 +15,6 @@ class HouseViewController: UIViewController{
     @IBOutlet weak var name: UILabel!
     
     var h: ModelHouse
-    var myImage = UIImage(contentsOfFile:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg" )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +31,8 @@ class HouseViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //Put info in its fields
         self.name.text = h.house!.name
-        self.numberAlumns.text = "Number Students: " + String(describing:h.house!.numberAlumns)
+        self.numberAlumns.text = "Number Students: " + String(describing:h.house!.alumns.count)
         self.imageHouse.image = h.img
     }
 }

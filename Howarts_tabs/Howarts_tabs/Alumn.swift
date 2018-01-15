@@ -1,4 +1,4 @@
-//
+//#imageLiteral(resourceName: "default.jpg")
 //  Alumn.swift
 //  Howarts_tabs
 //
@@ -17,20 +17,19 @@ public class Alumn: Codable {
     var id: String
     
     init() {
-        //Generate a unique ID (one per user)
         self.id = UUID().uuidString
-        self.name = "Name: " + self.id
+        self.name = self.id
         self.surname = "Surname"
-        self.house = "House"
-        self.image = ""
+        self.house = "Gryffindor"
+        self.image = "default.jpg"
     }
     
     init(house: String){
         self.id = UUID().uuidString
-        self.name = "Name: " + self.id
+        self.name = self.id
         self.surname = "Surname"
         self.house = house
-        self.image = ""
+        self.image = "default.jpg"
     }
     
 }

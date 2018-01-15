@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate,  UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
+class AlumnViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,  UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var surname: UITextField!
@@ -18,8 +18,7 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
     var m: ModelAlumn
     var appModel: AppModel
     var alumn: Alumn
-    var myImage = UIImage(contentsOfFile:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg" )
-    var houseSelected = ""
+    var houseSelected = "Gryffindor"
     var imagePickerController: UIImagePickerController {
         let p  = UIImagePickerController()
         p.delegate = self
@@ -31,17 +30,8 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped(tapGestureRecognizer:)))
         image.isUserInteractionEnabled = true
         image.addGestureRecognizer(tapGestureRecognizer)
-        name.text = "Default"
-        surname.text = "Default"
-        // house.text = "La mia"
-        image.image = m.image
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
-        //let tappedImage = tapGestureRecognizer.view as! UIImageView
-        activeCamera()
-    }
     required init?(coder aDecoder: NSCoder) {
         let ad  = UIApplication.shared.delegate as! AppDelegate
         self.m = ad.m
@@ -53,17 +43,23 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
     //Charge in fields info recived by other view
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.alumn = appModel.dictionaryAlumns[m.id]!
-        //Put info in its fields
         self.name.text = alumn.name
         self.surname.text = alumn.surname
         self.image.image = m.image
+        self.houseSelected = alumn.house
         for (index, element) in self.appModel.houses.enumerated() {
             if (element.name == alumn.house){
                 self.house.selectRow(index, inComponent: 0, animated: false)
             }
         }
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        activeCamera()
+        tappedImage.image = appModel.loadImage(name: alumn.image)
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
@@ -75,7 +71,9 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
         appModel.dictionaryAlumns[m.id] = self.alumn
         appModel.saveAlumns()
         appModel.alumnsByHouse()
-        performSegue(withIdentifier: "saveSegueId", sender: nil)
+        let alert = UIAlertController(title: "Save", message:"Sucess!", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title:"OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     //Picker Protocol
@@ -104,7 +102,9 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
             self.imagePickerController.cameraDevice = .front
             present(imagePickerController, animated: true, completion: nil)
         }else{
-            showPopup(image)
+            let alert = UIAlertController(title: "Camera", message:"Sorry, camera not found", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title:"OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -116,34 +116,14 @@ class AlumnViewController: UIViewController, UITextFieldDelegate, UIPickerViewDa
         }
         //Try to find image if it can't find it only return.
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {return}
-        alumn.image = saveImage(image: image)
+        saveImage(image: image)
     }
     
-    func saveImage(image: UIImage) -> String {
+    func saveImage(image: UIImage) {
         
-        let imageData = NSData(data: UIImagePNGRepresentation(image)!)
-        let path = Bundle.main.bundleURL
-        let uuid = self.alumn.id + ".png"
-        let fullPath = path.appendingPathComponent(uuid)
-        imageData.write(toFile: fullPath.absoluteString, atomically: true)
-        return uuid
+        appModel.saveImage(image: image, name: self.alumn.name + ".jpg")
+        alumn.image = self.alumn.name + ".jpg"
         
-    }
-    
-    //pop up not camera
-    func showPopup (_ sender: UIView) {
-        let popUp = storyboard?.instantiateViewController(withIdentifier: "POP_UP_CAMERA") as! PopUp
-        //popUp.label.text = "Sorry, your device has't camera!"
-        popUp.modalPresentationStyle = .popover
-        let popPC = popUp.popoverPresentationController!
-        popPC.sourceView = sender
-        popPC.sourceRect = sender.bounds
-        popPC.delegate = self
-        present(popUp, animated: true, completion: nil)
-    }
-    
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
     }
 }
 

@@ -16,27 +16,29 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
     
     var m:ModelAlumn
     var appModel:AppModel
-    //I need a ordered array to show all students in table, so this is the solution.
-    var arrayIterador: [String]
     var selectedAlumn: ModelAlumn
-    let mainBundle = Bundle.main
     
     required init?(coder aDecoder: NSCoder) {
-        //let ad  = UIApplication.sharedApplication().deletete as! AppDelegate
         let ad  = UIApplication.shared.delegate as! AppDelegate
         m = ad.m
         self.appModel = ad.appModel
-        self.arrayIterador = Array(appModel.dictionaryAlumns.keys)
         self.selectedAlumn = ModelAlumn()
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // tableView.setEditing(true, animated: true)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let ad  = UIApplication.shared.delegate as! AppDelegate
+        m = ad.m
+        self.appModel = ad.appModel
+        tableView.reloadData()
+        appModel.houses.forEach({debugPrint($0.alumns.count)})
     }
     
     //Charge model with info that i want to share with next view.
@@ -50,8 +52,6 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // return self.appModel.dictionaryAlumns.count
-        // debugPrint(appModel.houses[section].numberAlumns)
         return appModel.houses[section].alumns.count
     }
     
@@ -64,40 +64,25 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
         let row = indexPath.row
         let alumn = self.appModel.dictionaryAlumns[self.appModel.houses[indexPath.section].alumns[row]]!
         cell.name.text = alumn.name
-        let pathImage = mainBundle.bundlePath + "/" + alumn.image
-        cell.img.image = UIImage(contentsOfFile:pathImage)
+        cell.img.image = appModel.loadImage(name: alumn.image)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedAlumn.id = appModel.houses[indexPath.section].alumns[indexPath.row]
-        debugPrint(selectedAlumn.id)
-        let pathImage = mainBundle.bundlePath + "/" + appModel.dictionaryAlumns[self.selectedAlumn.id]!.image
-        self.selectedAlumn.image = UIImage(contentsOfFile:pathImage)
+        self.selectedAlumn.image = appModel.loadImage(name: appModel.dictionaryAlumns[selectedAlumn.id]!.image)
         performSegue(withIdentifier: "tableViewAlumnView", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let row = indexPath.row
-            appModel.dictionaryAlumns.removeValue(forKey: arrayIterador[row])
+            appModel.dictionaryAlumns.removeValue(forKey: appModel.houses[indexPath.section].alumns[indexPath.row])
             appModel.houses[indexPath.section].alumns.remove(at: indexPath.row)
-            self.arrayIterador = Array(appModel.dictionaryAlumns.keys)
+            appModel.saveAlumns()
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
         }
     }
     
-    /*func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }*/
-    
-    /*func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let item: String = arrayIterador[sourceIndexPath.row]
-        arrayIterador.remove(at: sourceIndexPath.row)
-        arrayIterador.insert(item, at: destinationIndexPath.row)
-    }*/
-
     @IBAction func deleteButton(_ sender: UIButton) {
         if tableView.isEditing {
             tableView.setEditing(false, animated: true)
@@ -108,9 +93,10 @@ class TableAlumnsViewController:UIViewController, UITableViewDelegate, UITableVi
         }
     }
     @IBAction func newButton(_ sender: UIButton) {
-        let newAlumn: Alumn? = Alumn.init()
+        let newAlumn: Alumn? = Alumn.init(house:"Gryffindor")
         appModel.dictionaryAlumns[newAlumn!.id] = newAlumn
         self.selectedAlumn.id = newAlumn!.id
+        self.selectedAlumn.image = appModel.loadImage(name: appModel.dictionaryAlumns[self.selectedAlumn.id]!.image)
         performSegue(withIdentifier:"tableViewAlumnView" , sender: nil)
     }
 }

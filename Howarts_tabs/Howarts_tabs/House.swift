@@ -11,7 +11,6 @@ import Foundation
 public class House: Codable {
     
     var name: String
-    var numberAlumns: Int
     var id: String
     var alumns: [String]
     var image: String
@@ -19,10 +18,9 @@ public class House: Codable {
     init() {
         //Generate a unique ID (one per user)
         self.id = UUID().uuidString
-        self.name = "Name" + self.id
+        self.name = "Default Name"
         self.alumns = []
-        self.numberAlumns = self.alumns.count
-        self.image = ""
+        self.image = "default.jpg"
     }
     
 }

@@ -2,7 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/Howarts_tabs/Howarts_tabs/AlumnViewController.swift">
+      location = "group:/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/Howarts_tabs/Howarts_tabs/Assets.xcassets">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/Howarts_tabs/Howarts_tabs/data/images/default.jpg">
    </FileRef>
    <FileRef
       location = "self:">

@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  TableHousesViewController.swift
 //  Howarts_tabs
 //
 //  Created by Juan Carlos Frutos Hernández on 28/12/2017.
@@ -29,7 +29,6 @@ class TableHousesViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,16 +47,14 @@ class TableHousesViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HouseCell", for: indexPath) as! HouseCell
         let row = indexPath.row
-        //cell.imageHouse.image = UIImage(contentsOfFile:"/Users/jcarlos/Documents/desarrollo/Hogwarts_administrator/images/maria.jpg" )
-        let pathImage = mainBundle.bundlePath + "/" + appModel.houses[row].image
+        let pathImage = mainBundle.bundlePath + "/data/images/" + appModel.houses[row].image
         cell.imageHouse.image = UIImage(contentsOfFile:pathImage)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedHouse.house = appModel.houses[indexPath.row]
-        let pathImage = mainBundle.bundlePath + "/" + appModel.houses[indexPath.row].image
-        debugPrint(pathImage)
+        let pathImage = mainBundle.bundlePath + "/data/images/" + appModel.houses[indexPath.row].image
         selectedHouse.img = UIImage(contentsOfFile:pathImage)
         performSegue(withIdentifier: "listHouseDetailHouse", sender: nil)
     }
